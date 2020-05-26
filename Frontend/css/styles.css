@@ -47,6 +47,10 @@ header h3 a:hover {
 .container-inscription .container-inscription-title h3 {
   font-family: amikosemibold;
   text-align: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9em;
 }
 .container-inscription .container-inscription-formulaire {
   display: flex;
@@ -66,11 +70,15 @@ header h3 a:hover {
 }
 .container-inscription .container-inscription-formulaire button {
   margin-top: 20px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .container-inscription .container-inscription-formulaire p {
   font-family: amikosemibold;
   font-size: 0.8em;
-  padding-bottom: 20px;
+  padding-bottom: 50px;
+  text-align: center;
 }
 
 footer {
