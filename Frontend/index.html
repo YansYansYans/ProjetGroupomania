@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<title>Groupomania</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Dialogué, communiqué et travaillé enssemble sur le réseau d'entreprise Groupomania">
+	<meta name="viewport" content="width=device-width" />
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="img/icon.ico" rel="shortcut icon" />
+
+</head>
+
+<body>
+
+	<header>
+		<img src="img/icon-left-font-monochrome-white.png">
+		<h1>
+			Réseau Social d'entreprise
+		</h1>
+		<h3>
+			<a>
+				Déconnexion
+			</a>
+			<a class="profil.html">
+				Profil
+			</a>
+		</h3>
+	</header>
+		
+	<div class="container-index">
+		<div class="container-index-left">
+			<h2>
+				Messages Récents
+			</h2>
+            <article id="messages"></article>
+		</div>
+		<div class="container-index-right">
+			<button id="btnPublich" class="without-btn"> <style>.without-btn {display: block;} .without-btn-active {display: none;} </style>
+				Publier un message
+			</button>
+			<div class="container-index-right-contenu"> <style>.container-index-right-contenu {display: none;} .container-index-right-contenu-active {display: flex; flex-direction: column; font-family: amikosemibold; border: 2px #CFD8DC solid; padding: 30px;}</style>
+				<label for="img"> Photo : </label>
+	            <input type='file' id='img' />
+	            <textarea name="content" id="content"></textarea>
+	            <button id="send">Publier</button>
+            </div>
+		</div>
+	</div>
+
+	<footer>
+		<p class="footer-droit">
+			Tout droits réservés-2019-2020 Groupomania
+		</p>
+		<p class="footer-mention">
+			<a href="mention.html">Mentions Légales</a>
+		</p>
+	</footer>
+
+	<script>
+		var btnPublich = document.getElementById('btnPublich');
+		btnPublich.onclick = function(){
+			var shows = document.querySelector('.container-index-right-contenu');
+			shows.classList.toggle('container-index-right-contenu-active');
+			var unshows = document.querySelector('.without-btn');
+			unshows.classList.toggle('without-btn-active');
+		}
+	</script>
+</body>
+
+</html>

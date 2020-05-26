@@ -15,6 +15,8 @@ header h1 {
 }
 header h3 {
   margin-top: 67.5px;
+  display: flex;
+  flex-direction: column;
 }
 header h3 a {
   font-family: amikosemibold;
@@ -24,6 +26,7 @@ header h3 a {
 header h3 a:hover {
   color: #FF7043;
   transition: 500ms;
+  cursor: pointer;
 }
 
 .container-inscription {
@@ -133,6 +136,50 @@ footer .footer-mention a {
     margin-bottom: 40px;
   }
 }
+.container-index {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+.container-index .container-index-left h2 {
+  font-family: amikosemibold;
+}
+.container-index .container-index-right .without-btn {
+  background-color: #283593;
+  font-family: amikosemibold;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px white solid;
+}
+.container-index .container-index-right .without-btn:hover {
+  background-color: #FF7043;
+  cursor: pointer;
+  transition: 500ms;
+}
+.container-index .container-index-right .container-index-right-contenu input {
+  font-family: amikosemibold;
+  margin-bottom: 50px;
+}
+.container-index .container-index-right .container-index-right-contenu button {
+  font-family: amikosemibold;
+  background-color: #283593;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px white solid;
+  margin-top: 50px;
+}
+.container-index .container-index-right .container-index-right-contenu button:hover {
+  background-color: #FF7043;
+  cursor: pointer;
+  transition: 500ms;
+}
+
 @font-face {
   font-family: "amikosemibold";
   src: url("font/Amiko-SemiBold-webfont.eot");
