@@ -1,3 +1,104 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #283593;
+}
+header img {
+  width: 10em;
+  margin-left: 40px;
+}
+header h1 {
+  font-family: amikosemibold;
+  color: white;
+  margin-top: 80px;
+}
+header h3 {
+  margin-top: 67.5px;
+}
+header h3 a {
+  font-family: amikosemibold;
+  color: white;
+  margin-right: 40px;
+}
+header h3 a:hover {
+  color: #FF7043;
+  transition: 500ms;
+}
 
+.container-inscription {
+  margin-top: 100px;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px #CFD8DC solid;
+  margin-bottom: 100px;
+}
+.container-inscription .container-inscription-title {
+  padding-top: 20px;
+  margin-bottom: 80px;
+}
+.container-inscription .container-inscription-title img {
+  width: 10em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-inscription .container-inscription-title h3 {
+  font-family: amikosemibold;
+  text-align: center;
+}
+.container-inscription .container-inscription-formulaire {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+  margin-left: auto;
+  width: 40%;
+}
+.container-inscription .container-inscription-formulaire label {
+  font-family: amikosemibold;
+}
+.container-inscription .container-inscription-formulaire input {
+  margin-bottom: 20px;
+}
+.container-inscription .container-inscription-formulaire select {
+  margin-bottom: 20px;
+}
+.container-inscription .container-inscription-formulaire button {
+  margin-top: 20px;
+}
+.container-inscription .container-inscription-formulaire p {
+  font-family: amikosemibold;
+  font-size: 0.8em;
+  padding-bottom: 20px;
+}
+
+footer {
+  background-color: #283593;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-family: amikosemibold;
+  font-size: 0.8em;
+}
+footer .footer-droit {
+  padding-left: 20px;
+}
+footer .footer-mention {
+  padding-right: 20px;
+}
+footer .footer-mention a {
+  color: white;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "amikosemibold";
+  src: url("font/Amiko-SemiBold-webfont.eot");
+  src: url("font/Amiko-SemiBold-webfont.eot?#iefix") format("embedded-opentype"), url("font/Amiko-SemiBold-webfont.woff2") format("woff2"), url("font/Amiko-SemiBold-webfont.woff") format("woff"), url("font/Amiko-SemiBold-webfont.ttf") format("truetype"), url("font/Amiko-SemiBold-webfont.svg#amikosemibold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*# sourceMappingURL=styles.css.map */
