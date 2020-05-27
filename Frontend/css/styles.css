@@ -161,8 +161,10 @@ footer .footer-mention a {
     font-size: 1.2em;
     text-align: center;
   }
-  header h3 {
-    display: none;
+  header h3 a {
+    color: #f44336;
+    margin-right: 0px;
+    text-align: center;
   }
 
   .container-inscription {

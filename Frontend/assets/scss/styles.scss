@@ -168,8 +168,10 @@ footer {
 			font-size: 1.2em;
 			text-align: center;
 		}
-		& h3 {
-			display: none;
+		& h3 a {
+			color: #f44336;
+			margin-right: 0px;
+			text-align: center;
 		}
 	}
 	.container-inscription {
