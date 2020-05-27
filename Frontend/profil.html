@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 
-	<title>Groupomania</title>
+	<title>Profil - Groupomania</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
@@ -19,14 +19,14 @@
 	<header>
 		<img src="img/icon-left-font-monochrome-white.png">
 		<h1>
-			Réseau Social d'entreprise
+			Profil
 		</h1>
 		<h3>
 			<a>
 				Déconnexion
 			</a>
-			<a href="profil.html">
-				Profil
+			<a href="index.html">
+				Messages Récent
 			</a>
 		</h3>
 	</header>
@@ -34,19 +34,48 @@
 	<div class="container-index">
 		<div class="container-index-left">
 			<h2>
-				Messages Récents
+				Votre Profil
 			</h2>
-            <article id="messages"></article>
+            <div class="container-index-left-contenu">
+            	<h3 id="name1">
+            		
+            	</h3>
+            	<h3 id="name2">
+            		
+            	</h3>
+            	<h3 id="pole">
+            		
+            	</h3>
+            	<h3 id="email">
+            		
+            	</h3>
+            	<h3 id="mdp">
+            		
+            	</h3>
+            </div>
 		</div>
 		<div class="container-index-right">
 			<button id="btnPublich" class="without-btn"> <style>.without-btn {display: block;} .without-btn-active {display: none;} </style>
-				Publier un message
+				Modifier
 			</button>
 			<div class="container-index-right-contenu"> <style>.container-index-right-contenu {display: none;} .container-index-right-contenu-active {display: flex; flex-direction: column; font-family: amikosemibold; border: 2px #CFD8DC solid; padding: 30px;}</style>
-				<label for="img"> Photo : </label>
-	            <input type='file' id='img' />
-	            <textarea name="content" id="content"></textarea>
-	            <button id="send">Publier</button>
+				<label for="name1">Prénom :</label>
+				<input type="text" name="name1" id="name1">
+				<label for="name2">Nom :</label>
+				<input type="text" name="name2" id="name2">
+				<label for="pole">Pôle :</label>
+	            	<select name="pole" id="pole">
+	                    <option value="none">Selectionnez une fonction</option>
+	                    <option value="Pôle Direction">Pôle Direction</option>
+	                    <option value="Pôle RH">Pôle RH</option>
+	                    <option value="Pôle Communication">Pôle Communication</option>
+	                    <option value="Pôle Informatique">Pôle Informatique</option>
+	                    <option value="Pôle Comptabilité">Pôle Comptabilité</option>
+	                </select>
+				<label for="mdp">Mot de Passe :</label>
+				<input type="text" name="mdp" id="mdp">
+	            <button id="send">Valider</button>
+	            <button id="send">Supprimer mon compte</button>
             </div>
 		</div>
 	</div>
@@ -65,10 +94,7 @@
 		btnPublich.onclick = function(){
 			var shows = document.querySelector('.container-index-right-contenu');
 			shows.classList.toggle('container-index-right-contenu-active');
-			var unshows = document.querySelector('.without-btn');
-			unshows.classList.toggle('without-btn-active');
 		}
 	</script>
 </body>
-
 </html>
