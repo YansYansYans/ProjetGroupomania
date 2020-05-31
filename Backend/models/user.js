@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
         models.User.hasMany(models.Message);
         models.User.hasMany(models.Like);
-        models.User.hasMany(models.Comment)
   };
   return User;
 };
