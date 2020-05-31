@@ -121,9 +121,25 @@ exports.deleteUser = (req, res) => {
             if (!user) {
                 return error
             } else {
+                try {
+                    let liked = await models.Like.findAndCountAll({ where: { userId: userId } })
+                    let likecount = await liked.count;
+                    console.log(likecount)
+                    for (let i = 0; i < likecount; i++) {
+                        let likes = await models.Like.findOne({ where: { userId: userId } });
+                        let message = await models.Message.findOne({ where: { id: likes.messageId } });
+                        message.update({ likes: message.likes += -1 });
+                        likes.destroy();
+                    }
+                    let messages = await models.Message.findAndCountAll({ where: { userId: userId } });
+                    let messagecount = await messages.count;
+                    for (let i = 0; i < messagecount; i++) {
+                        let message = await models.Message.findOne({ where: { userId: userId } });
+                        message.destroy();
+                    }
                     user.destroy();
                     return res.status(201).json({ message: 'Compte supprimé' });
-                catch (error) {
+                } catch (error) {
                     return error;
                 }
             }

@@ -12,9 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="img/icon.ico" rel="shortcut icon" />
 
+	<script src="connexion.js"></script>
+	
 </head>
 
-<body>
+<body onload='clear()'>
 
 	<header>
 		<img src="img/icon-left-font-monochrome-white.png">
@@ -53,7 +55,7 @@
 			<input type="text" name="email" id="email">
 			<label for="mdp">Mot de Passe :</label>
 			<input type="text" name="mdp" id="mdp">
-			<button id="send">
+			<button id="send" onclick="singin()">
 				S'inscrire
 			</button>
             <p>
