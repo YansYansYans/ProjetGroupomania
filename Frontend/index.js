@@ -2,7 +2,7 @@
 function user() {
     let infosUser = sessionStorage.getItem('user');
     if (infosUser == undefined) {
-        alert("Connectez-vous pour acceder à Groupomania")
+        alert("Connectez-vous pour acceder à Groupomania !")
         document.location.href = "login.html";
     } else {
         return infosUser
@@ -75,7 +75,6 @@ message().then(function(messages) {
         likes.innerHTML += likesd;
     }
 })
-
 
 async function postMessage() {
     let infosUser = user()

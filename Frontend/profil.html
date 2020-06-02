@@ -12,9 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="img/icon.ico" rel="shortcut icon" />
 
+	<script src="profil.js"></script>
+
 </head>
 
-<body>
+<body onload='profil()'>
 
 	<header>
 		<img src="img/icon-left-font-monochrome-white.png">
@@ -22,7 +24,7 @@
 			Profil
 		</h1>
 		<h3>
-			<a>
+			<a onclick='disconnected()'>
 				Déconnexion
 			</a>
 			<a href="index.html">
@@ -37,20 +39,11 @@
 				Votre Profil
 			</h2>
             <div class="container-index-left-contenu">
-            	<h3 id="name1">
-            		
-            	</h3>
-            	<h3 id="name2">
-            		
-            	</h3>
-            	<h3 id="pole">
-            		
-            	</h3>
             	<h3 id="email">
-            		
+            		<span>Email : </span>
             	</h3>
             	<h3 id="username">
-            		
+            		<span>Nom d'utilisateur : </span>
             	</h3>
             </div>
 		</div>
@@ -59,23 +52,17 @@
 				Modifier
 			</button>
 			<div class="container-index-right-contenu"> <style>.container-index-right-contenu {display: none;} .container-index-right-contenu-active {display: flex; flex-direction: column; font-family: amikosemibold; border: 2px #CFD8DC solid; padding: 30px;}</style>
-				<label for="name1">Prénom :</label>
-				<input type="text" name="name1" id="name1">
-				<label for="name2">Nom :</label>
-				<input type="text" name="name2" id="name2">
 				<label for="pole">Pôle :</label>
 	            	<select name="pole" id="pole">
-	                    <option value="none">Selectionnez une fonction</option>
-	                    <option value="Pôle Direction">Pôle Direction</option>
-	                    <option value="Pôle RH">Pôle RH</option>
-	                    <option value="Pôle Communication">Pôle Communication</option>
-	                    <option value="Pôle Informatique">Pôle Informatique</option>
-	                    <option value="Pôle Comptabilité">Pôle Comptabilité</option>
+	                    <option value="none" id="oldPole">Selectionnez une fonction</option>
+	                    <option value="Pôle Direction" class="option">Pôle Direction</option>
+	                    <option value="Pôle RH" class="option">Pôle RH</option>
+	                    <option value="Pôle Communication" class="option">Pôle Communication</option>
+	                    <option value="Pôle Informatique" class="option">Pôle Informatique</option>
+	                    <option value="Pôle Comptabilité" class="option">Pôle Comptabilité</option>
 	                </select>
-				<label for="mdp">Mot de Passe :</label>
-				<input type="text" name="mdp" id="mdp">
-	            <button id="send">Valider</button>
-	            <button id="send">Supprimer mon compte</button>
+	            <button id="send" class="val" onclick="update()">Valider</button>
+	            <button id="send" class="supp" onclick="deleteUser()">Supprimer mon compte</button>
             </div>
 		</div>
 	</div>
