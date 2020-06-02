@@ -12,9 +12,11 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link href="img/icon.ico" rel="shortcut icon" />
 
+	<script src="index.js"></script>
+
 </head>
 
-<body>
+<body >
 
 	<header>
 		<img src="img/icon-left-font-monochrome-white.png">
@@ -22,7 +24,7 @@
 			Réseau Social d'entreprise
 		</h1>
 		<h3>
-			<a>
+			<a onclick='disconnected()'>
 				Déconnexion
 			</a>
 			<a href="profil.html">
@@ -46,7 +48,7 @@
 				<label for="img"> Photo : </label>
 	            <input type='file' id='img' />
 	            <textarea name="content" id="content"></textarea>
-	            <button id="send">Publier</button>
+	            <button id="send" onclick="postMessage()">Publier</button>
             </div>
 		</div>
 	</div>
