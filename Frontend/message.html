@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+	<title>Message - Groupomania</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Dialogué, communiqué et travaillé enssemble sur le réseau d'entreprise Groupomania">
+	<meta name="viewport" content="width=device-width" />
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link href="img/icon.ico" rel="shortcut icon" />
+
+    <script src="message.js"></script>
+
+</head>
+
+<body onload='message()'>
+
+	<header>
+		<img src="img/icon-left-font-monochrome-white.png">
+		<h1>
+			Messages
+		</h1>
+		<h3>
+			<a onclick='disconnected()'>
+				Déconnexion
+			</a>
+			<a href="profil.html">
+				Profil
+			</a>
+			<a href="index.html">
+				Accueil
+			</a>
+		</h3>
+	</header>
+		
+	<div class="container-index" id="msgMain">
+		<div class="container-index-left" id="msgDialog"> 
+			<form method="dialog">
+                <textarea name="newContent" id="newContent" cols="120" rows="5"></textarea>
+                <button value="cancel">Annuler</button>
+                <button id="confirmBtn" value="default">Valider</button>
+            </form>
+		</div>
+		<div class="container-index-right" id="msg">
+            <article id="message"></article>
+            <article id="options">
+                <a id="updateDetails">Modifier</a>
+                <a onclick='deleteMsg()'>Supprimer</a>
+            </article>
+		</div>
+	</div>
+
+	<footer>
+		<p class="footer-droit">
+			Tout droits réservés-2019-2020 Groupomania
+		</p>
+		<p class="footer-mention">
+			<a href="mention.html">Mentions Légales</a>
+		</p>
+    </footer>
+    
+</body>
+
+</html>

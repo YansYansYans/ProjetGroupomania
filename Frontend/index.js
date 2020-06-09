@@ -9,13 +9,6 @@ function user() {
     }
 }
 
-//Se déconnecter de son compte
-function disconnected() {
-    sessionStorage.removeItem('user')
-    document.location.href = 'login.html'
-    alert('Vous avez été déconnecté')
-}
-
 async function message() {
     let infosUser = await user();
     response = await fetch("http://localhost:3006/api/message/", {
@@ -129,4 +122,11 @@ async function seeMessage() {
     let data = event.currentTarget.getAttribute('id');
     sessionStorage.setItem('message', data);
     document.location.href = 'message.html'
+}
+
+//Se déconnecter de son compte
+function disconnected() {
+    sessionStorage.removeItem('user')
+    document.location.href = 'login.html'
+    alert('Vous avez été déconnecté')
 }
