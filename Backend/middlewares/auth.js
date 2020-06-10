@@ -4,7 +4,7 @@ let jwt_sign = '<JWT_SIGN_TOKEN>';
 module.exports = {
     generateToken: function(user) {
         return jwt.sign({
-                userId: user.id,
+                idUser: user.id,
                 isAdmin: user.isAdmin
             },
             jwt_sign, {
@@ -15,8 +15,8 @@ module.exports = {
         try {
             const token = headerAuth
             const decodedToken = jwt.verify(token, jwt_sign);
-            const userId = decodedToken.userId;
-            if (!userId) {
+            const idUser = decodedToken.idUser;
+            if (!idUser) {
                 throw 'UserId Invalid';
             } else {
 

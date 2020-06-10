@@ -95,13 +95,13 @@ exports.login = (req, res) => {
 //Mettre à jour son profile
 exports.updateUser = (req, res) => {
     let headerAuth = req.headers['authorization'];;
-    let userId = auth.getUserId(headerAuth).userId;
+    let idUser = auth.getUserId(headerAuth).idUser;
     const name1 = req.body.name1;
     const name2 = req.body.name2;
     const pole = req.body.pole;
     const mdp = req.body.mdp;
     models.User.findOne({
-        where: { id: userId }
+        where: { id: idUser }
     }).then(user => {
         if (!user) {
             return error
@@ -115,26 +115,26 @@ exports.updateUser = (req, res) => {
 // Supprimer un profile 
 exports.deleteUser = (req, res) => {
     let headerAuth = req.headers['authorization'];;
-    let userId = auth.getUserId(headerAuth).userId;
-    models.User.findOne({ where: { id: userId } })
+    let idUser = auth.getUserId(headerAuth).idUser;
+    models.User.findOne({ where: { id: idUser } })
         .then(async function(user) {
             if (!user) {
                 return error
             } else {
                 try {
-                    let liked = await models.Like.findAndCountAll({ where: { userId: userId } })
+                    let liked = await models.Like.findAndCountAll({ where: { idUser: idUser } })
                     let likecount = await liked.count;
                     console.log(likecount)
                     for (let i = 0; i < likecount; i++) {
-                        let likes = await models.Like.findOne({ where: { userId: userId } });
+                        let likes = await models.Like.findOne({ where: { idUser: idUser } });
                         let message = await models.Message.findOne({ where: { id: likes.messageId } });
                         message.update({ likes: message.likes += -1 });
                         likes.destroy();
                     }
-                    let messages = await models.Message.findAndCountAll({ where: { userId: userId } });
+                    let messages = await models.Message.findAndCountAll({ where: { idUser: idUser } });
                     let messagecount = await messages.count;
                     for (let i = 0; i < messagecount; i++) {
-                        let message = await models.Message.findOne({ where: { userId: userId } });
+                        let message = await models.Message.findOne({ where: { idUser: idUser } });
                         message.destroy();
                     }
                     user.destroy();
@@ -150,9 +150,9 @@ exports.deleteUser = (req, res) => {
 // Afficher un profile
 exports.getUserProfil = (req, res) => {
     let headerAuth = req.headers['authorization'];;
-    let userId = auth.getUserId(headerAuth).userId;
+    let idUser = auth.getUserId(headerAuth).idUser;
     models.User.findOne({
-            where: { id: userId },
+            where: { id: idUser },
             attributes: ['email', 'username', 'pole']
         })
         .then(user => {

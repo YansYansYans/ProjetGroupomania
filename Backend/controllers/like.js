@@ -3,15 +3,15 @@ const auth = require('../middlewares/auth')
 
 exports.likeMessage = (req, res) => {
     let headerAuth = req.headers['authorization'];
-    let userId = auth.getUserId(headerAuth).userId;
+    let idUser = auth.getUserId(headerAuth).idUser;
     const messageId = req.body.messageId;
     models.Like.findOne({
-        where: { messageId: messageId, userId: userId }
+        where: { messageId: messageId, idUser: idUser }
     }).then(liked => {
         if (!liked) {
             models.Like.create({
                 MessageId: messageId,
-                userId: userId
+                idUser: idUser
             })
             models.Message.findOne({ where: { id: messageId } })
                 .then(liked => {

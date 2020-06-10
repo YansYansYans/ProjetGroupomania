@@ -7,9 +7,9 @@ const view_content = 10
 exports.newMessage = (req, res) => {
     const msgObject = JSON.parse(req.body.message)
     let headerAuth = req.headers['authorization'];;
-    let userId = auth.getUserId(headerAuth).userId;
+    let idUser = auth.getUserId(headerAuth).idUser;
     models.User.findOne({
-        where: { id: userId }
+        where: { id: idUser }
     }).then((user) => {
         if (!user) {
             return res.status(401).json({
@@ -26,7 +26,7 @@ exports.newMessage = (req, res) => {
                     models.Message.create({
                         ...msgObject,
                         likes: 0,
-                        userId: userId
+                        idUser: idUser
                     })
                     return res.status(201).json({
                         message: 'Message publié!'
@@ -36,7 +36,7 @@ exports.newMessage = (req, res) => {
                         ...msgObject,
                         attachment: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
                         likes: 0,
-                        userId: userId
+                        idUser: idUser
                     })
                     return res.status(201).json({
                         message: 'Message publié!'
@@ -103,7 +103,7 @@ exports.updateMessage = (req, res) => {
     const messageId = req.params.id;
     let headerAuth = req.headers['authorization'];
     let token = auth.getUserId(headerAuth);
-    let userId = token.userId;
+    let idUser = token.idUser;
     let admin = token.isAdmin
     const content = req.body.content;
 
@@ -121,7 +121,7 @@ exports.updateMessage = (req, res) => {
                     'error': 'Parametre Invalid'
                 });
             } else {
-                if (message.userId == userId || admin === true) {
+                if (message.idUser == idUser || admin === true) {
                     message.update({ content: message.content = content })
                     return res.status(201).json({
                         message: 'Message modifié'
@@ -142,7 +142,7 @@ exports.deleteMessage = (req, res) => {
     const messageId = req.params.id;
     let headerAuth = req.headers['authorization'];
     let token = auth.getUserId(headerAuth);
-    let userId = token.userId;
+    let idUser = token.idUser;
     let admin = token.isAdmin
     console.log(admin)
     models.Message.findOne({ where: { id: messageId } })
@@ -150,7 +150,7 @@ exports.deleteMessage = (req, res) => {
             if (!message) {
                 return error
             } else {
-                if (message.userId == userId || admin === true) {
+                if (message.idUser == idUser || admin === true) {
                     {
                         try {
                             let liked = await models.Like.findAndCountAll({ where: { messageId: messageId } })
