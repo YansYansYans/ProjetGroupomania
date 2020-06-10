@@ -5,7 +5,7 @@ const regex = /[a-zA-Z]/;
 const view_content = 10
 
 exports.newMessage = (req, res) => {
-    const messageObject = JSON.parse(req.body.message)
+    const msgObject = JSON.parse(req.body.message)
     let headerAuth = req.headers['authorization'];;
     let userId = auth.getUserId(headerAuth).userId;
     models.User.findOne({
@@ -16,7 +16,7 @@ exports.newMessage = (req, res) => {
                 message: 'Utilisateur non trouvé !'
             });
         } else {
-            if (!regex.test(messageObject.content) || !regex.test(messageObject.title)) {
+            if (!regex.test(msgObject.content)) {
                 res.status(401).json({
                     message: "Merci de remplir tout les champs !",
                     'error': 'Champs Invalid'
@@ -24,19 +24,19 @@ exports.newMessage = (req, res) => {
             } else {
                 if (req.body.image === 'undefined') {
                     models.Message.create({
-                        ...messageObject,
+                        ...msgObject,
                         likes: 0,
-                        UserId: userId
+                        userId: userId
                     })
                     return res.status(201).json({
                         message: 'Message publié!'
                     })
                 } else {
                     models.Message.create({
-                        ...messageObject,
+                        ...msgObject,
                         attachment: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
                         likes: 0,
-                        UserId: userId
+                        userId: userId
                     })
                     return res.status(201).json({
                         message: 'Message publié!'
@@ -50,7 +50,7 @@ exports.newMessage = (req, res) => {
     }))
 };
 
-exports.getAllMessage = (req, res) => {
+exports.getAllMessages = (req, res) => {
     let view = req.body.view;
     var order = req.query.order;
     if (view === undefined) {

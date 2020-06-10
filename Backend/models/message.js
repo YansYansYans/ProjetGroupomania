@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Message = sequelize.define('Message', {
-    idUser: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
     content: DataTypes.STRING,
     attachment: DataTypes.STRING,
     likes: DataTypes.INTEGER
@@ -17,3 +17,4 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Message;
 };
+

@@ -16,7 +16,7 @@ module.exports = {
           key: 'id'
         }
       },
-      idUser: {
+      userId: {
         allowNull: false,
         type: Sequelize.INTEGER
         references: {
@@ -38,3 +38,4 @@ module.exports = {
     return queryInterface.dropTable('Likes');
   }
 };
+

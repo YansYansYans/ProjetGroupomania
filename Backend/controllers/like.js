@@ -11,7 +11,7 @@ exports.likeMessage = (req, res) => {
         if (!liked) {
             models.Like.create({
                 MessageId: messageId,
-                UserId: userId
+                userId: userId
             })
             models.Message.findOne({ where: { id: messageId } })
                 .then(liked => {

@@ -10,3 +10,4 @@ router.delete('/delete', userCtrl.deleteUser)//Supprimer son profile
 router.get('/profil', userCtrl.getUserProfil)//Afficher le profile
 
 module.exports = router;
+
