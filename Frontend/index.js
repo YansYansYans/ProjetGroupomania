@@ -1,132 +1,121 @@
-//Vérification de connexion sur la page index.html
-function user() {
-    let infosUser = sessionStorage.getItem('user');
-    if (infosUser == undefined) {
-        alert("Connectez-vous pour acceder à Groupomania !")
-        document.location.href = "login.html";
-    } else {
-        return infosUser
+//Création des contantes
+const content = document.getElementById('content');
+const fileField = document.querySelector('input[type=file]')
+const btn = document.getElementById('btn');
+const errorMessage = document.getElementById('error-message');
+
+//Récupération de l'API
+const url = 'http://localhost:4000/post'
+const token = 'Bearer ' + sessionStorage.getItem('token')
+
+//Création des données pour créer d'une publication
+const createData = async (url, formData) => {
+    try {
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': token
+            },
+            method: 'POST',
+            body: formData
+        })
+        return await response.json()        
+    } catch (err) {
+        throw new Error(err)
     }
 }
 
-async function message() {
-    let infosUser = await user();
-    response = await fetch("http://localhost:3006/api/message/", {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': infosUser
-        },
-        mode: 'cors',
-    });
-    let messages = await response.json();
-    console.log(message)
-    return messages;
-}
-
-message().then(function(messages) {
-    for (let message of messages) {
-        console.log(message)
-        const parent = document.getElementById('messages');
-        const parentbis = document.createElement('div');
-        parent.append(parentbis);
-        parentbis.id = 'div' + message.id;
-        const new_child = document.getElementById('div' + message.id)
-        const new_parent = document.createElement("a");
-        new_child.append(new_parent);
-        new_parent.addEventListener('click', function(e) {
-            seeMessage()
-        })
-        new_parent.id = message.id;
-        //Création du username
-        const child = document.getElementById(message.id);
-        const name = document.createElement('h3')
-        child.append(name);
-        name.innerHTML += message.User.username;
-        //Création de l'image
-        if (message.attachment != undefined) {
-            const image = document.createElement('img')
-            child.append(image)
-            image.src = message.attachment
-        }
-        //Création du content
-        const content = document.createElement('p');
-        child.append(content);
-        content.id = "content";
-        content.innerHTML += message.content;
-        //Création du likes
-        const likes = document.createElement('p')
-        new_child.append(likes);
-        likes.id = message.id;
-        likes.className = 'likes'
-        likes.addEventListener('click', function(e) {
-            likesMessage()
-        })
-        let likesd = message.likess;
-        likesd += " J'aime"
-        likes.innerHTML += likesd;
+//Button pour créer une publicaation
+btn.addEventListener('click', async (e) => {
+    try {
+        e.preventDefault();
+        console.log(content.value)
+        if( content.value.length > 0) {
+            const formData = new FormData();
+            const post = { content: content.value }
+            formData.append('post', JSON.stringify(post))
+            if ( fileField.files[0]) formData.append('image', fileField.files[0])   
+            const data = await createData(url, formData)
+            content.value = "";
+            window.location.reload(true)
+            return console.log(data.message)
+        }   
+        return errorMessage.textContent = "Ecrivez un message pour poster une publication"     
+    } catch (err) {
+        throw new Error(err)
     }
 })
 
-async function postMessage() {
-    let infosUser = user()
-    let content = document.getElementById("content").value;
-    let img = document.getElementById('img').files[0]
-    let message = new Object();
-    message.content = content;
-    var test = new FormData()
-    test.append('message', JSON.stringify(message))
-    test.append('image', img)
-    response = await fetch("http://localhost:3006/api/message/new", {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json; ',
-            'Authorization': infosUser
-        },
-        mode: 'cors',
-        body: test
-    })
-    let post = await response.json();
-    alert(post.message);
-    if (response.status == 201) {
-        window.location.reload()
+//Affichage des publications
+const urlPosts = 'http://localhost:4000/posts'
+const displayPosts = async () => {
+    const posts = await getPosts(urlPosts);
+    for( let i = posts.length -1; i >= 0; i--) {
+        const {username, content, avatar, id, imageUrl} = posts[i]
+        const date = posts[i].updatedAt
+        const postDate = convertDate(date)
+        renderPost(username, avatar, imageUrl, content, postDate, id)
     }
 }
 
-async function likeMessage() {
+//Récupération des données des publication
+const getPosts = async (url) => {
     try {
-        infosUser = user()
-        let data = event.currentTarget.getAttribute('id');
-        let likes = new Object();
-        likes.messageId = data;
-        response = await fetch("http://localhost:3006/api/message/likes", {
-            method: 'POST',
+        const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': infosUser
-            },
-            mode: 'cors',
-            body: JSON.stringify(likes),
+                'Authorization': token
+            }
         })
-        window.location.reload()
-    } catch (error) {
-        alert('Erreur lors du like')
-        window.location.reload()
+        return await response.json()
+    } catch (err) {
+        throw new Error(err)
     }
 }
 
-async function seeMessage() {
-    infosUser = user()
-    let data = event.currentTarget.getAttribute('id');
-    sessionStorage.setItem('message', data);
-    document.location.href = 'message.html'
+//Design d'une publication
+const renderPost = (username, avatar, imageUrl, postContent, postDate, postId) => {
+    const section = document.getElementById('post');
+    const article = document.createElement('article');
+    if(imageUrl === null) {
+        //Design d'une publication sans image
+        article.innerHTML = `
+        <div class="post">
+            <div class="username"><img src="${avatar}" id="avatar"><div><p id:"name">${username}</p></div></div>
+            <div class="content">
+                <p>${postContent}</p>
+            </div>
+            <p class="date">${postDate}</p>
+            <a href="post.html?${postId}"><b>Commentaires</b></a>
+        </div>`        
+    } else {
+        //Design d'une publication avec image
+        article.innerHTML = `
+        <div class="post">
+            <div class="username"><img src="${avatar}" id="avatar"><div><p id:"name">${username}</p></div></div>
+            <div class="content">
+            <img src="${imageUrl}">
+                <p>${postContent}</p>
+            </div>
+            <p class="date">${postDate}</p>
+            <a href="post.html?${postId}"><b>Commentaires</b></a>
+        </div>`
+    }
+    section.appendChild(article)
 }
 
-//Se déconnecter de son compte
-function disconnected() {
-    sessionStorage.removeItem('user')
-    document.location.href = 'login.html'
-    alert('Vous avez été déconnecté')
+//Conversion de la date en FR
+const convertDate = (date) => {
+    const engDate = date.split('T')[0].split('-')
+    const hour = date.split('T')[1].split('.')[0]
+    let frDate = []
+    for( let i = engDate.length - 1 ; i >= 0; i-- ) {
+        frDate.push(engDate[i])
+    }
+    frDate = frDate.join('-')
+    const message = frDate + ', ' + hour
+    return message
 }
+
+displayPosts()
+

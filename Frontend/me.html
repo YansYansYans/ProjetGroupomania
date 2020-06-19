@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <title>Profil - Groupomania</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Dialogué, communiqué et travaillé enssemble sur le réseau d'entreprise Groupomania">
+	<meta name="viewport" content="width=device-width" />
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="img/icon.ico" rel="shortcut icon" />
+    
+    <script src="connexion.js" async></script>
+    <script src="me.js" async></script>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="img/icon-left-font-monochrome-white.png">
+		<h1>
+			Profil
+		</h1>
+        <h3>
+            <a href="index.html">Fil d'actualité</a>            
+            <a id="connexion">           
+            </a> 
+        </h3>
+    </header>
+
+    <main id="my-account" class="container-index">
+        <div class="container-index-right me-contenu">
+			<h2>
+				Votre Profil
+			</h2>
+            <form class="container-index-right-contenu">       
+                <label for="file"><b>Photo de profil :</b></label>
+                <input type="file" name="image" id="file" required>
+                <div id="image"><img src="#" alt="Votre photo"></div>
+                <label for="username"><b>Nom d'utilisateur:</b></label>
+                <input type="text" name="username" id="username" required>
+                <label for="email"><b>Email :</b></label>
+                <input type="email" name="email" id="email" required>
+                <label for="psw"><b>Mot de passe :</b></label>
+                <input type="password" name="psw" id="psw" required>
+                <button type="submit" class="updatebtn val" id="updatebtn">Valider</button>
+                <button type="submit" class="deletebtn supp" id="deletebtn">Supprimer</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+		<p class="footer-droit">
+			Tout droits réservés-2019-2020 Groupomania
+		</p>
+		<p class="footer-mention">
+			<a href="mention.html">Mentions Légales</a>
+		</p>
+    </footer>
+    
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 
-    <title>Accueil - Groupomania</title>
+    <title>Commentaire - Groupomania</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -14,43 +14,28 @@
     <link href="img/icon.ico" rel="shortcut icon" />
 
     <script src="connexion.js" async></script>
-    <script src="index.js" async></script>
+    <script src="post.js" async></script>
+    <script src="https://kit.fontawesome.com/e439166e98.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-
     <header>
         <img src="img/icon-left-font-monochrome-white.png">
         <h1>
             Réseau Social d'entreprise
         </h1>
         <h3>
-            <a href="me.html">Profil</a>            
+            <a href="index.html">Fil d'actualité</a>
+            <a href="me.html">Mon Profil</a>            
             <a id="connexion">             
             </a> 
         </h3>
     </header>
 
-    <main id="index" class="container-index index-reverse">
-        <section id="post" class="container-index-left index-img">
-            <h2 class="h2public">
-                Publications Récentes
-            </h2>
+    <main class="container-index">
+        <section id="post" class="container-index-left post-contenu">
         </section>
-        <form class="container-index-right" id="myHeader">
-            <div class="post-form container-index-right-contenu">
-                <h2>
-                    Poster une publications
-                </h2>
-                <div class="pub">
-                    <textarea id="content" rows="8" placeholder="Ecrivez un message..."></textarea>
-                    <input type="file" name="image">
-                    <button type="submit" class="validbtn" id="btn">Publier</button> 
-                </div>               
-            </div>
-            <div id="error-message"></div>
-        </form>
     </main>
 
     <footer>
@@ -63,34 +48,8 @@
     </footer>
 
     <script>
-        window.onscroll = function() {myFunction()};
-        
-        var header = document.getElementById("myHeader");
-        var sticky = header.offsetTop;
-        
-        function myFunction() {
-          if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-          } else {
-            header.classList.remove("sticky");
-          }
-        }
-
         var scrolltotop={setting:{startline:100,scrollto:0,scrollduration:1e3,fadeduration:[500,100]},controlHTML:'<img src="https://i1155.photobucket.com/albums/p559/scrolltotop/arrow54.png" />',controlattrs:{offsetx:5,offsety:5},anchorkeyword:"#top",state:{isvisible:!1,shouldvisible:!1},scrollup:function(){this.cssfixedsupport||this.$control.css({opacity:0});var t=isNaN(this.setting.scrollto)?this.setting.scrollto:parseInt(this.setting.scrollto);t="string"==typeof t&&1==jQuery("#"+t).length?jQuery("#"+t).offset().top:0,this.$body.animate({scrollTop:t},this.setting.scrollduration)},keepfixed:function(){var t=jQuery(window),o=t.scrollLeft()+t.width()-this.$control.width()-this.controlattrs.offsetx,s=t.scrollTop()+t.height()-this.$control.height()-this.controlattrs.offsety;this.$control.css({left:o+"px",top:s+"px"})},togglecontrol:function(){var t=jQuery(window).scrollTop();this.cssfixedsupport||this.keepfixed(),this.state.shouldvisible=t>=this.setting.startline?!0:!1,this.state.shouldvisible&&!this.state.isvisible?(this.$control.stop().animate({opacity:1},this.setting.fadeduration[0]),this.state.isvisible=!0):0==this.state.shouldvisible&&this.state.isvisible&&(this.$control.stop().animate({opacity:0},this.setting.fadeduration[1]),this.state.isvisible=!1)},init:function(){jQuery(document).ready(function(t){var o=scrolltotop,s=document.all;o.cssfixedsupport=!s||s&&"CSS1Compat"==document.compatMode&&window.XMLHttpRequest,o.$body=t(window.opera?"CSS1Compat"==document.compatMode?"html":"body":"html,body"),o.$control=t('<div id="topcontrol">'+o.controlHTML+"</div>").css({position:o.cssfixedsupport?"fixed":"absolute",bottom:o.controlattrs.offsety,right:o.controlattrs.offsetx,opacity:0,cursor:"pointer"}).attr({title:"Scroll to Top"}).click(function(){return o.scrollup(),!1}).appendTo("body"),document.all&&!window.XMLHttpRequest&&""!=o.$control.text()&&o.$control.css({width:o.$control.width()}),o.togglecontrol(),t('a[href="'+o.anchorkeyword+'"]').click(function(){return o.scrollup(),!1}),t(window).bind("scroll resize",function(t){o.togglecontrol()})})}};scrolltotop.init();
     </script>
-
-    <style>
-        .sticky {
-            position: fixed;
-            top: 0;
-            left: 60%;
-        }
-        @media all and (max-width: 1225px) {
-            .sticky {
-                position:unset;
-            }
-        }
-    </style>
 
 </body>
 </html>

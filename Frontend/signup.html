@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 
-    <title>Connexion - Groupomania</title>
+    <title>Inscription - Groupomania</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="img/icon.ico" rel="shortcut icon" />
 
-    <script src="login.js" async></script>
+    <script src="signup.js" async></script>
 
 </head>
 
@@ -21,31 +21,36 @@
     <header>
         <img src="img/icon-left-font-monochrome-white.png">
         <h1>
-            Se connecter
+            S'inscrire
         </h1>
-        <h3>         
-            <a href="signup.html">Inscription</a>                
+        <h3>           
+            <a href="login.html">Connexion</a>               
         </h3>
     </header>
 
-    <main class="container-inscription">
+    <main id="signup" class="container-inscription">
         <div class="container-inscription-title">
             <img src="img/icon-left-font-monochrome-black.png">
             <h3>
-                Connectez-vous pour partager et visionner les photos de vos collègues
+                Inscrivez-vous pour partager et visionner les photos de vos collègues
             </h3>
         </div>
-        <form class="container-inscription-formulaire">       
+        <form enctype="multipart/form-data" class="container-inscription-formulaire">       
+            <label for="file"><b>Photo de profil</b></label>
+            <input type="file" name="image" id="file" required>
+            <div id="image"><img src="#" alt="Votre photo"></div>
+            <label for="username"><b>Nom d'utilisateur</b></label>
+            <input type="text" placeholder="Entrez votre pseudonyme" name="username" id="username" required>
             <label for="email"><b>Email</b></label>
             <input type="email" placeholder="Entrez votre adresse email" name="email" id="email" required>
             <label for="psw"><b>Mot de Passe</b></label>
             <input type="password" placeholder="Entrez votre mot de passe" name="psw" id="psw" required>
             <div id="error-message"></div>
-            <button type="submit" class="validbtn" id="btn">Valider</button>
+            <button type="submit" class="validbtn" id="btn">Inscription</button>
             <p>
-                Pas encore inscrit? <a href="signup.html">Inscrivez-vous!</a>
+                Déjà inscrit? <a href="login.html">Connectez-vous!</a>
             </p>
-        </form>
+        </form>            
     </main>
 
     <footer>
@@ -56,6 +61,6 @@
             <a href="mention.html">Mentions Légales</a>
         </p>
     </footer>
-    
+
 </body>
 </html>

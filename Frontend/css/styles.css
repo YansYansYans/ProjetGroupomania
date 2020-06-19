@@ -9,7 +9,6 @@ header img {
   margin-left: 40px;
 }
 header h1 {
-  font-family: amikosemibold;
   color: white;
   margin-top: 80px;
 }
@@ -19,7 +18,6 @@ header h3 {
   flex-direction: column;
 }
 header h3 a {
-  font-family: amikosemibold;
   color: white;
   margin-right: 40px;
 }
@@ -48,7 +46,6 @@ header h3 a:hover {
   margin-right: auto;
 }
 .container-inscription .container-inscription-title h3 {
-  font-family: amikosemibold;
   text-align: center;
   width: 70%;
   margin-left: auto;
@@ -61,9 +58,6 @@ header h3 a:hover {
   margin-right: auto;
   margin-left: auto;
   width: 40%;
-}
-.container-inscription .container-inscription-formulaire label {
-  font-family: amikosemibold;
 }
 .container-inscription .container-inscription-formulaire input {
   margin-bottom: 20px;
@@ -78,7 +72,6 @@ header h3 a:hover {
   margin-right: auto;
 }
 .container-inscription .container-inscription-formulaire p {
-  font-family: amikosemibold;
   font-size: 0.8em;
   padding-bottom: 50px;
   text-align: center;
@@ -90,10 +83,7 @@ footer {
   display: flex;
   justify-content: space-between;
   color: white;
-  font-family: amikosemibold;
   font-size: 0.8em;
-  position: absolute;
-  bottom: 0;
 }
 footer .footer-droit {
   padding-left: 20px;
@@ -106,6 +96,122 @@ footer .footer-mention a {
   text-decoration: none;
 }
 
+#image img {
+  width: 10em;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.index-img img {
+  width: 25em;
+}
+
+#avatar {
+  border-radius: 60%;
+  width: 3em;
+  height: 3em;
+  margin-right: 30px;
+  margin: 10px;
+  border: 2px grey solid;
+}
+
+.username {
+  font-size: 1.4em;
+  box-shadow: 0px 0px 2px black;
+  margin-top: 0px;
+  display: flex;
+}
+
+.content img {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  height: 300px;
+}
+
+.date {
+  font-size: 0.7em;
+}
+
+a b {
+  color: white;
+}
+
+.post a {
+  text-decoration: none;
+  background-color: #283593;
+  padding: 10px;
+}
+
+.post a:hover {
+  background-color: #FF7043;
+  transition: 500ms;
+}
+
+article {
+  box-shadow: 0px 0px 2px black;
+  margin-bottom: 50px;
+  width: 400px;
+}
+
+.pub {
+  box-shadow: 0px 0px 2px black;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.pub textarea {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pub input {
+  margin-top: 50px;
+}
+
+.me-contenu {
+  margin: auto;
+}
+
+.co {
+  box-shadow: 0px 0px 2px black;
+}
+.co .coco {
+  box-shadow: none;
+}
+.co #avatar {
+  width: 1em;
+  height: 1em;
+}
+.co #nameCo {
+  font-size: 0.6em;
+}
+.co #coco {
+  font-size: 0.3em;
+  margin-left: 60%;
+}
+.co .cococo {
+  font-size: 0.7em;
+}
+
+#post {
+  width: 100%;
+}
+
+.container-index-left {
+  display: flex;
+  flex-direction: column;
+}
+.container-index-left .container-index-left .container-index-left-contenu h3 {
+  font-style: italic;
+}
+.container-index-left .container-index-left .container-index-left-contenu h3 span {
+  font-style: initial;
+}
+
 .container-index {
   display: flex;
   justify-content: space-between;
@@ -115,19 +221,8 @@ footer .footer-mention a {
   margin-bottom: 100px;
   margin-top: 100px;
 }
-.container-index .container-index-left h2 {
-  font-family: amikosemibold;
-}
-.container-index .container-index-left .container-index-left-contenu h3 {
-  font-family: amikosemibold;
-  font-style: italic;
-}
-.container-index .container-index-left .container-index-left-contenu h3 span {
-  font-style: initial;
-}
 .container-index .container-index-right .without-btn {
   background-color: #283593;
-  font-family: amikosemibold;
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -138,12 +233,15 @@ footer .footer-mention a {
   cursor: pointer;
   transition: 500ms;
 }
-.container-index .container-index-right .container-index-right-contenu input {
-  font-family: amikosemibold;
+
+.container-index-right-contenu {
+  display: flex;
+  flex-direction: column;
+}
+.container-index-right-contenu input {
   margin-bottom: 50px;
 }
-.container-index .container-index-right .container-index-right-contenu button {
-  font-family: amikosemibold;
+.container-index-right-contenu button {
   background-color: #283593;
   color: white;
   padding: 10px;
@@ -151,19 +249,19 @@ footer .footer-mention a {
   border: 2px white solid;
   margin-top: 50px;
 }
-.container-index .container-index-right .container-index-right-contenu button:hover {
+.container-index-right-contenu button:hover {
   background-color: #FF7043;
   cursor: pointer;
   transition: 500ms;
 }
-.container-index .container-index-right .container-index-right-contenu button.val {
+.container-index-right-contenu button.val {
   background-color: green;
 }
-.container-index .container-index-right .container-index-right-contenu button.supp {
+.container-index-right-contenu button.supp {
   background-color: red;
 }
 
-@media all and (max-device-width: 576px) {
+@media all and (max-width: 1225px) {
   header {
     flex-direction: column;
   }
@@ -207,20 +305,47 @@ footer .footer-mention a {
     margin-bottom: 80px;
   }
   .container-index .container-index-left h2 {
-    font-size: 1em;
+    font-size: 1.5em;
   }
   .container-index .container-index-left .container-index-left-contenu h3 {
     font-size: 0.8em;
   }
-  .container-index .container-index-right .without-btn {
+  .container-index .without-btn {
     display: none;
   }
-  .container-index .container-index-right .container-index-right-contenu {
+  .container-index .container-index-right-contenu {
     display: flex;
     flex-direction: column;
-    font-family: amikosemibold;
     border: 2px #CFD8DC solid;
     padding: 30px;
+  }
+
+  .index-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .container-index-right {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+  }
+
+  .content img {
+    width: 100%;
+    height: auto;
+  }
+
+  article {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pub {
+    box-shadow: 0px 0px 0px black;
+    padding: 0px;
   }
 
   footer {
@@ -234,6 +359,9 @@ footer .footer-mention a {
   src: url("font/Amiko-SemiBold-webfont.eot?#iefix") format("embedded-opentype"), url("font/Amiko-SemiBold-webfont.woff2") format("woff2"), url("font/Amiko-SemiBold-webfont.woff") format("woff"), url("font/Amiko-SemiBold-webfont.ttf") format("truetype"), url("font/Amiko-SemiBold-webfont.svg#amikosemibold") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+* {
+  font-family: amikosemibold;
 }
 
 /*# sourceMappingURL=styles.css.map */
