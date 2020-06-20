@@ -3,6 +3,9 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #283593;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
     & img {
         width: 10em;
         margin-left: 40px;
@@ -83,7 +86,7 @@ footer {
     display: flex;
     justify-content: space-between;
     color: white;
-    
+
     font-size: 0.8em;
     & .footer-droit {
         padding-left: 20px;
@@ -187,6 +190,11 @@ article {
 #post {
     width: 100%;
 }
+.footer-me {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+}
 .container-index-left {
     display: flex;
     flex-direction: column;
@@ -208,8 +216,10 @@ article {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
-    margin-top: 100px;
+    margin-top: 250px;
     & .container-index-right {
+        position: fixed;
+        left: 60%;
         & .without-btn {
             background-color: #283593;
             color: white;
@@ -336,6 +346,23 @@ article {
     footer {
         position: unset;
         bottom: 0;
+    }
+}
+
+@media screen and (max-height: 805px) {
+    .pub {
+        display: flex;
+        & button {
+            margin-top: 0px;
+        }
+        & input {  
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    }
+    .container-index {
+        margin-bottom: 100px;
+        margin-top: 200px;
     }
 }
 
