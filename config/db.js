@@ -2,7 +2,7 @@
 const Sequelize = require('sequelize');
 
 //Importe la base de donnée (nom_basededonnée , nom_userbdd , psw_userbdd)
-const sequelize = new Sequelize('test_test', '', '', {
+const sequelize = new Sequelize('test_test', 'root', 'Jemappelle95@', {
     host: 'localhost',
     dialect: 'mysql'
 });
