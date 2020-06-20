@@ -190,6 +190,10 @@ article {
 #post {
     width: 100%;
 }
+#con {
+    margin-bottom: 100px;
+    position: unset;
+}
 .footer-me {
     overflow: hidden;
     position: fixed;
@@ -261,9 +265,10 @@ article {
     }
 }
   
-@media all and (max-width: 1225px) {
+@media all and (max-device-width: 1225px) {
     header {
         flex-direction: column;
+        position: unset;
         & img {
             margin-left: auto;
             margin-right: auto;
@@ -298,7 +303,7 @@ article {
     .container-index {
         flex-direction: column;
         width: 90%;
-        margin-top: 30px;
+        margin-top: 0px;
         & .container-index-left {
             margin-top: 50px;
             margin-bottom: 80px;
@@ -311,6 +316,10 @@ article {
         }
         & .without-btn {
             display: none;
+        }
+        & .container-index-right {
+            position: unset;
+            
         }
         & .container-index-right-contenu {
             display: flex;
@@ -328,7 +337,7 @@ article {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 100px;
+        margin-top: 0px;
     }
     .content img{
         width: 100%;

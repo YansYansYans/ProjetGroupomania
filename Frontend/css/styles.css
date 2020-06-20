@@ -204,6 +204,11 @@ article {
   width: 100%;
 }
 
+#con {
+  margin-bottom: 100px;
+  position: unset;
+}
+
 .footer-me {
   overflow: hidden;
   position: fixed;
@@ -274,9 +279,10 @@ article {
   background-color: red;
 }
 
-@media all and (max-width: 1225px) {
+@media all and (max-device-width: 1225px) {
   header {
     flex-direction: column;
+    position: unset;
   }
   header img {
     margin-left: auto;
@@ -311,7 +317,7 @@ article {
   .container-index {
     flex-direction: column;
     width: 90%;
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .container-index .container-index-left {
     margin-top: 50px;
@@ -325,6 +331,9 @@ article {
   }
   .container-index .without-btn {
     display: none;
+  }
+  .container-index .container-index-right {
+    position: unset;
   }
   .container-index .container-index-right-contenu {
     display: flex;
@@ -342,7 +351,7 @@ article {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 0px;
   }
 
   .content img {
