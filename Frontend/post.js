@@ -2,7 +2,7 @@
 window.addEventListener('load', async () =>{
     const postId =  window.location.search.split('?')[1];
     const urlPost = `http://localhost:4000/post/${postId}`
-    const urlProfile = `http://localhost:4000/user/me`
+    const urlProfile = `http://localhost:4000/user/profil`
     const urlLike = `http://localhost:4000/post/${postId}/like`
     const urlComment = `http://localhost:4000/post/${postId}/comment`
     const urlComments = `http://localhost:4000/post/${postId}/comments`
@@ -52,7 +52,7 @@ window.addEventListener('load', async () =>{
                         <textarea>${postContent}</textarea>
                         <button type="submit" class="validbtn" id="btn">Modifier</button>
                         <div>
-                            <i class="far fa-thumbs-up"></i>
+                            <i id="btnn" class="far fa-thumbs-up no"></i>
                         </div>  
                     </form>
                     <p class="date">${postDate}</p>
@@ -66,7 +66,7 @@ window.addEventListener('load', async () =>{
                     <div class="content">
                         <p>${postContent}</p>
                         <div>
-                            <i class="far fa-thumbs-up"></i>
+                            <i id="btnn" class="far fa-thumbs-up no"></i>
                         </div>  
                     </div>
                     <p class="date">${postDate}</p>
@@ -85,7 +85,7 @@ window.addEventListener('load', async () =>{
                         <input type="file" name="image">
                         <button type="submit" class="validbtn" id="btn">Modifier</button>  
                         <div>
-                            <i class="far fa-thumbs-up"></i>
+                            <i id="btnn" class="far fa-thumbs-up no"></i>
                         </div>  
                     </form>
                     <p class="date">${postDate}</p>
@@ -100,7 +100,7 @@ window.addEventListener('load', async () =>{
                         <p>${postContent}</p>
                         <img src="${imageUrl}">
                         <div>
-                            <i class="far fa-thumbs-up"></i>
+                            <i id="btnn" class="far fa-thumbs-up no"></i>
                         </div>  
                     </div>
                     <p class="date">${postDate}</p>
@@ -335,3 +335,4 @@ window.addEventListener('load', async () =>{
     }
     displayComment()
 })
+

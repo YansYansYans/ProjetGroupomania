@@ -30,6 +30,11 @@ header h3 a:hover {
   cursor: pointer;
 }
 
+.header-co {
+  overflow: initial;
+  position: initial;
+}
+
 .container-inscription {
   margin-top: 100px;
   width: 40%;
@@ -401,6 +406,21 @@ article {
 }
 * {
   font-family: amikosemibold;
+}
+
+.fa-paper-plane {
+  cursor: pointer;
+  color: green;
+}
+
+.fa-times {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-thumbs-up {
+  cursor: pointer;
+  color: green;
 }
 
 /*# sourceMappingURL=styles.css.map */

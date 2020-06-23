@@ -15,10 +15,10 @@ router.post('/api/auth/signup', multer, userController.signup);
 //Se connecter
 router.post('/api/auth/login', userController.login);
 //Afficher le profile
-router.get('/user/me', auth, userController.getProfile);
+router.get('/user/profil', auth, userController.getProfile);
 //Supprimer le compte 
-router.delete('/user/me', auth, multer, userController.deleteProfile);
+router.delete('/user/profil', auth, multer, userController.deleteProfile);
 //Mettre à jour le profile
-router.put('/user/me', auth, multer,  userController.updateProfile);
+router.put('/user/profil', auth, multer,  userController.updateProfile);
 
 module.exports = router;
