@@ -2,43 +2,66 @@
 <html lang="fr">
 <head>
 
-    <title>Commentaire - Groupomania</title>
+    <title>Mentions Légales - Groupomania</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Dialogué, communiqué et travaillé enssemble sur le réseau d'entreprise Groupomania">
-    <meta name="viewport" content="width=device-width" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="img/icon.ico" rel="shortcut icon" />
 
-    <script src="connexion.js" async></script>
-    <script src="post.js" async></script>
-    <script src="https://kit.fontawesome.com/e439166e98.js" crossorigin="anonymous"></script>
-
 </head>
 
 <body>
-    <header>
+
+    <header >
         <img src="img/icon-left-font-monochrome-white.png" alt="Logo Groupomania">
         <h1>
-            Réseau Social d'entreprise
+            Mentions Légales
         </h1>
         <h3>
             <a href="index.html">Fil d'actualité</a>
-            <a href="me.html">Mon Profil</a>            
+            <a href="profil.html">Profil</a>            
             <a id="connexion">             
             </a> 
         </h3>
     </header>
 
-    <main class="container-index">
-        <section id="post" class="container-index-left post-contenu">
-        </section>
+    <main class="container-mention">
+       <h1>
+           Mentions Légales
+       </h1>
+       <br>
+       <br>
+       <h2>
+           Mentions Légales
+       </h2>
+       <br>
+       <p>
+        Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l’économie numérique, il est précisé aux utilisateurs du site legalplace.fr l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
+       </p>
+       <br>
+       <br>
+       <h2>
+           Edition du site
+       </h2>
+       <br>
+       <p>
+        Groupomania est une entreprise spécialisée dans la grande distribution. Elle comporte actuellement plus de 600 collaborateurs et a beaucoup recruté depuis quelques années. Elle comporté uniquement 300 il y a 3 ans.
+       </p>
+       <br>
+       <br>
+       <h2>
+           CNIL
+       </h2>
+       <br>
+       <p>
+        La société Groupomania conservera dans ses systèmes informatiques et dans des conditions raisonnables de sécurité une preuve de la transaction comprenant le bon de commande et la facture. La société Groupomania a fait l’objet d’une déclaration à la CNIL sous le numéro 1986932. Conformément aux dispositions de la loi 78-17 du 6 janvier 1978 modifiée, l’Utilisateur dispose d’un droit d’accès, de modification et de suppression des informations collectées par Groupomania. Pour exercer ce droit, il reviendra à l’Utilisateur d’envoyer un message à l’adresse suivante : support@groupomania.fr
+       </p>
     </main>
 
-    <footer class="footer-bottom">
+    <footer>
         <p class="footer-droit">
             Tout droits réservés-2019-2020 Groupomania
         </p>
@@ -48,9 +71,9 @@
     </footer>
 
     <script>
+        //Animation scroll top
         var scrolltotop={setting:{startline:100,scrollto:0,scrollduration:1e3,fadeduration:[500,100]},controlHTML:'<img src="https://i1155.photobucket.com/albums/p559/scrolltotop/arrow54.png" />',controlattrs:{offsetx:5,offsety:5},anchorkeyword:"#top",state:{isvisible:!1,shouldvisible:!1},scrollup:function(){this.cssfixedsupport||this.$control.css({opacity:0});var t=isNaN(this.setting.scrollto)?this.setting.scrollto:parseInt(this.setting.scrollto);t="string"==typeof t&&1==jQuery("#"+t).length?jQuery("#"+t).offset().top:0,this.$body.animate({scrollTop:t},this.setting.scrollduration)},keepfixed:function(){var t=jQuery(window),o=t.scrollLeft()+t.width()-this.$control.width()-this.controlattrs.offsetx,s=t.scrollTop()+t.height()-this.$control.height()-this.controlattrs.offsety;this.$control.css({left:o+"px",top:s+"px"})},togglecontrol:function(){var t=jQuery(window).scrollTop();this.cssfixedsupport||this.keepfixed(),this.state.shouldvisible=t>=this.setting.startline?!0:!1,this.state.shouldvisible&&!this.state.isvisible?(this.$control.stop().animate({opacity:1},this.setting.fadeduration[0]),this.state.isvisible=!0):0==this.state.shouldvisible&&this.state.isvisible&&(this.$control.stop().animate({opacity:0},this.setting.fadeduration[1]),this.state.isvisible=!1)},init:function(){jQuery(document).ready(function(t){var o=scrolltotop,s=document.all;o.cssfixedsupport=!s||s&&"CSS1Compat"==document.compatMode&&window.XMLHttpRequest,o.$body=t(window.opera?"CSS1Compat"==document.compatMode?"html":"body":"html,body"),o.$control=t('<div id="topcontrol">'+o.controlHTML+"</div>").css({position:o.cssfixedsupport?"fixed":"absolute",bottom:o.controlattrs.offsety,right:o.controlattrs.offsetx,opacity:0,cursor:"pointer"}).attr({title:"Scroll to Top"}).click(function(){return o.scrollup(),!1}).appendTo("body"),document.all&&!window.XMLHttpRequest&&""!=o.$control.text()&&o.$control.css({width:o.$control.width()}),o.togglecontrol(),t('a[href="'+o.anchorkeyword+'"]').click(function(){return o.scrollup(),!1}),t(window).bind("scroll resize",function(t){o.togglecontrol()})})}};scrolltotop.init();
     </script>
-
 
 </body>
 </html>

@@ -7,15 +7,15 @@ header {
     position: fixed;
     top: 0;
     & img {
-        width: 10em;
+        width: 8em;
         margin-left: 40px;
       }
     &  h1 {
         color: white;
-        margin-top: 80px;
+        margin-top: 60px;
     }
     &  h3 {
-        margin-top: 67.5px;
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         & a {
@@ -90,7 +90,6 @@ footer {
     display: flex;
     justify-content: space-between;
     color: white;
-
     font-size: 0.8em;
     & .footer-droit {
         padding-left: 20px;
@@ -102,6 +101,11 @@ footer {
             text-decoration: none;
         }
     }
+}
+.footer-bottom {
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
 }
 
 #image img {
@@ -198,11 +202,7 @@ article {
     margin-bottom: 100px;
     position: unset;
 }
-.footer-me {
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-}
+
 .container-index-left {
     display: flex;
     flex-direction: column;
@@ -241,6 +241,13 @@ article {
             transition: 500ms;
         }
     }
+}
+.container-mention {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
 }
 .container-index-right-contenu {
     display: flex;
@@ -357,8 +364,8 @@ article {
         padding: 0px;
     }
     footer {
-        position: unset;
-        bottom: 0;
+        position: initial;
+        overflow: initial;
     }
 }
 
