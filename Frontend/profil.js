@@ -12,12 +12,13 @@ const token = 'Bearer ' + sessionStorage.getItem('token')
 const urlMyProfile = 'http://localhost:4000/user/me'
 
 //Récupère et affiche les données de l'API
-   const data = await getData(urlMyProfile);
-   const { username, email } = data // 
-   myImage.setAttribute('src', `${data.imageUrl}`)
-   myUsername.value = username
-   myEmail.value = email 
-}
+const getProfile = async () => {
+    const data = await getData(urlMyProfile);
+    const { username, email } = data 
+    myImage.setAttribute('src', `${data.imageUrl}`)
+    myUsername.value = username 
+    myEmail.value = email 
+ }
 
 //Récupère les données de l'utilisateur de l'API
 const getData = async (url) => {
